@@ -112,7 +112,7 @@ export default function AppHome() {
                                         Get a free, data-backed estimate of your property's current market value based on real comparable sales.
                                     </p>
                                     <div className="flex items-center text-amber-600 font-semibold text-sm">
-                                        Get Free Report <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                        Get Free Valuation <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </div>
                             </Link>
