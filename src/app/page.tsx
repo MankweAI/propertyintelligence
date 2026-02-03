@@ -36,13 +36,13 @@ export default function AppHome() {
                     <FadeIn>
                         <div className="max-w-4xl mx-auto">
                             <div className="inline-flex items-center gap-2 py-2 px-4 bg-white/10 border border-white/20 backdrop-blur-md rounded-full mb-8">
-                                <Sparkles className="h-4 w-4 text-emerald-400" />
-                                <span className="text-sm font-semibold text-emerald-100">PropertyIntelligence</span>
+                                <Sparkles className="h-4 w-4 text-amber-400" />
+                                <span className="text-sm font-semibold text-amber-100">PropertyIntelligence</span>
                             </div>
 
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 leading-tight">
                                 Know Your Property's{' '}
-                                <span className="text-emerald-400">True Value</span>
+                                <span className="text-amber-400">True Value</span>
                             </h1>
 
                             <p className="text-xl md:text-2xl text-stone-200 mb-12 leading-relaxed max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ export default function AppHome() {
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                                 <ValuationModal suburbName="Sandton">
-                                    <Button className="h-16 px-12 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg rounded-xl shadow-xl shadow-emerald-600/20 transition-all hover:scale-[1.02]">
+                                    <Button className="h-16 px-12 bg-amber-600 hover:bg-amber-500 text-white font-bold text-lg rounded-xl shadow-xl shadow-amber-600/20 transition-all hover:scale-[1.02]">
                                         Request Free Valuation
 
                                     </Button>
@@ -72,11 +72,11 @@ export default function AppHome() {
                                     <div className="text-sm font-medium text-stone-300 uppercase tracking-wider">Suburbs</div>
                                 </div>
                                 <div className="border-l border-white/10 pl-8 md:pl-16">
-                                    <div className="text-4xl font-bold text-white mb-2">15k<span className="text-emerald-400">+</span></div>
+                                    <div className="text-4xl font-bold text-white mb-2">15k<span className="text-amber-400">+</span></div>
                                     <div className="text-sm font-medium text-stone-300 uppercase tracking-wider">Sales Analyzed</div>
                                 </div>
                                 <div className="border-l border-white/10 pl-8 md:pl-16">
-                                    <div className="text-4xl font-bold text-white mb-2">95<span className="text-emerald-400">%</span></div>
+                                    <div className="text-4xl font-bold text-white mb-2">95<span className="text-amber-400">%</span></div>
                                     <div className="text-sm font-medium text-stone-300 uppercase tracking-wider">Accuracy</div>
                                 </div>
                             </div>
@@ -139,15 +139,15 @@ export default function AppHome() {
                         {/* Tool 3: Suburb Explorer */}
                         <StaggerItem>
                             <Link href="/property-valuation/sandton" className="group block h-full">
-                                <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:border-emerald-200 hover:shadow-lg transition-all h-full flex flex-col">
-                                    <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <MapPin className="h-7 w-7 text-emerald-600" />
+                                <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:border-amber-200 hover:shadow-lg transition-all h-full flex flex-col">
+                                    <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                        <MapPin className="h-7 w-7 text-amber-600" />
                                     </div>
                                     <h3 className="text-xl font-bold text-stone-900 mb-3">Suburb Explorer</h3>
                                     <p className="text-stone-600 leading-relaxed mb-6 flex-1">
                                         Browse 34 Sandton suburbs with detailed valuation reports and market insights.
                                     </p>
-                                    <div className="flex items-center text-emerald-600 font-semibold text-sm">
+                                    <div className="flex items-center text-amber-600 font-semibold text-sm">
                                         Browse Suburbs <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@ export default function AppHome() {
                                 </p>
                                 <div className="flex gap-6">
                                     <div className="flex items-center gap-2 text-stone-600">
-                                        <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                                        <ShieldCheck className="h-5 w-5 text-amber-600" />
                                         <span className="text-sm font-medium">Deeds Office Verified</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-stone-600">
@@ -190,7 +190,7 @@ export default function AppHome() {
                                         Sandton Median
                                     </div>
                                     <div className="text-3xl font-bold text-stone-900 mb-1">R5.1M</div>
-                                    <div className="text-sm text-emerald-600 font-semibold flex items-center gap-1">
+                                    <div className="text-sm text-amber-600 font-semibold flex items-center gap-1">
                                         <TrendingUp className="h-4 w-4" /> +2.4% YoY
                                     </div>
                                 </div>
