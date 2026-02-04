@@ -1,31 +1,26 @@
 import { MetadataRoute } from 'next'
-import { getSuburbSlugs } from '@/lib/data'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+/**
+ * Main Sitemap Index - References all city-specific sitemaps.
+ * As we expand to more cities (Johannesburg, Pretoria, Cape Town, etc.),
+ * add new sitemap references here.
+ *
+ * This structure follows Google's best practice for scalable pSEO:
+ * - Main index at /sitemap.xml
+ * - City-specific sitemaps at /property-valuation/{city}/sitemap.xml
+ */
+export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://propertyintelligence.co.za'
 
-    // Get all suburb slugs from the data source
-    const suburbSlugs = await getSuburbSlugs()
+    // Core pages (home, about, etc.)
+    const corePages = [
+        {
+            url: baseUrl,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 1.0,
+        },
+    ]
 
-    // Generate URLs for each suburb page
-    const suburbRoutes = suburbSlugs.map((slug) => ({
-        url: `${baseUrl}/property-valuation/sandton/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-    }))
-
-    // Define static routes
-    const staticRoutes = [
-        '', // Home page
-        '/property-valuation/sandton', // Hub page
-        // '/property-agents/sandton', // Agent Hub
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 1.0,
-    }))
-
-    return [...staticRoutes, ...suburbRoutes]
+    return corePages
 }
