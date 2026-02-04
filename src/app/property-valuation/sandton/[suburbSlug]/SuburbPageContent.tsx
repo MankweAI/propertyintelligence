@@ -20,6 +20,7 @@ import { getSuburbHeroImage } from '@/lib/images';
 import { AgentSelectionMethodology } from '@/components/seller/AgentSelectionMethodology';
 import { MarketNarrative } from '@/components/seller/MarketNarrative';
 import { MarketPulseWidget } from '@/components/seller/MarketPulseWidget';
+import { SuburbRealityReport } from '@/components/seller/SuburbRealityReport';
 import { IntentToggle, UserIntent } from "@/components/IntentToggle";
 import { PriceVelocitySlider } from "@/components/seller/PriceVelocitySlider";
 import { SuburbSellerData } from "@/lib/seller-data";
@@ -139,6 +140,9 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
 
                         {/* 2. THE CONTEXT: SEO Intro Paragraph - Dynamic Narrative */}
                         <MarketNarrative data={sellerData} suburbName={suburb.name} />
+
+                        {/* 2.5 NEW: SUBURB REALITY REPORT - Unique Data Visualization */}
+                        <SuburbRealityReport data={sellerData} suburbName={suburb.name} />
 
                         {/* 3. THE ENGAGEMENT: Interactive Insights */}
                         <InteractiveInsights data={sellerData} suburbName={suburb.name} />
