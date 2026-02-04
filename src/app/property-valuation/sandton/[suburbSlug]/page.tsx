@@ -14,11 +14,26 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
     const { suburbSlug } = await params;
     const suburb = await getSuburbBySlug(suburbSlug);
+    const sellerData = await getSellerData(suburbSlug);
+
     if (!suburb) return { title: 'Suburb Not Found' };
 
+    // Dynamic Title Construction
+    // Attempt: "Selling in [Suburb]? [Marketing Angle] | 2025 Market Intel"
+    const hook = sellerData?.sellerIntelligence?.marketingAngles?.[0];
+    const title = hook
+        ? `Selling in ${suburb.name}? ${hook} | 2026 Market Intel`
+        : `Property Valuation & Selling in ${suburb.name} | 2026 Market Intel`;
+
+    // Dynamic Description Construction
+    // Attempt: "[Narrative Summary Snippet]. Get your accurate..."
+    const narrativeSnippet = sellerData?.narrativeSummary
+        ? sellerData.narrativeSummary.split('.')[0] + '.'
+        : `Get a free property valuation in ${suburb.name}. See real market data, sold prices, and how to sell 40% faster than the Sandton average.`;
+
     return {
-        title: `Property Valuation & Selling in ${suburb.name} | 2025 Market Intel`,
-        description: `Get a free property valuation in ${suburb.name}. See real market data, sold prices, and how to sell 40% faster than the Sandton average.`,
+        title: title,
+        description: `${narrativeSnippet} Get your accurate ${suburb.name} valuation today.`,
     };
 }
 
@@ -71,17 +86,24 @@ export default async function SuburbSellerPage({ params }: PageProps) {
                                 }
                             },
                             {
-                                "@type": "RealEstateAgent",
-                                "name": `${suburb.name} Valuation Services`,
-                                "areaServed": {
-                                    "@type": "City",
-                                    "name": suburb.name,
-                                    "containedIn": "Sandton, Johannesburg"
+                                "@type": "Service",
+                                "name": "Residential Property Valuation",
+                                "serviceType": "Real Estate Appraisal",
+                                "provider": {
+                                    "@type": "Organization",
+                                    "name": "PropertyIntelligence",
+                                    "url": "https://propertyintelligence.co.za"
                                 },
-                                "offers": {
-                                    "@type": "Offer",
-                                    "description": "Free property valuation and seller consultation"
-                                }
+                                "areaServed": {
+                                    "@type": "Place",
+                                    "name": suburb.name,
+                                    "geo": {
+                                        "@type": "GeoShape",
+                                        "addressCountry": "ZA",
+                                        "addressRegion": "Gauteng"
+                                    }
+                                },
+                                "description": `Data-driven property valuation and selling advice for ${suburb.name}, Sandton.`
                             }
                         ]
                     })

@@ -65,7 +65,7 @@ export function ValueOptimizationGuide({ data, suburbName, intent }: ValueOptimi
     const HeaderIcon = header.icon;
 
     return (
-        <section className="bg-white rounded-[2rem] p-8 border border-stone-100 shadow-xl shadow-stone-200/40 overflow-hidden relative">
+        <section className="bg-white rounded-[2rem] p-4 border border-stone-100 shadow-xl shadow-stone-200/40 overflow-hidden relative">
             {/* Header */}
             <div className="mb-10 relative z-10">
                 <h2 className="text-3xl font-serif font-bold text-stone-900 mb-3 flex items-center gap-3">
@@ -143,7 +143,7 @@ export function ValueOptimizationGuide({ data, suburbName, intent }: ValueOptimi
                                 ? `"Focus on properties on the market for >90 days. Sellers in ${suburbName} become significantly more negotiable after the 3-month mark."`
                                 : intent === 'owner'
                                     ? `"Long-term hold is the strategy. ${suburbName} compound growth has outperformed inflation by 2% over the last decade."`
-                                    : `"${data.buyerProfile?.dominant ? `Target the '${data.buyerProfile.dominant}' segment.` : 'Focus on lifestyle buyers.'} ${data.buyerProfile?.motivations?.[0] || 'Emphasize security and location.'}"`
+                                    : `"${data.sellerIntelligence?.marketingAngles?.[0] || (data.buyerProfile?.dominant ? `Target the '${data.buyerProfile.dominant}' segment.` : 'Focus on lifestyle buyers.')} ${data.buyerProfile?.motivations?.[0] || ''}"`
                             }
                         </p>
                     </div>

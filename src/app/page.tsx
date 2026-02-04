@@ -57,7 +57,7 @@ export default function AppHome() {
 
                                     </Button>
                                 </ValuationModal>
-                                <Link href="/property-valuation/sandton">
+                                <Link href="/property-valuation/sandton#suburb-grid">
                                     <Button variant="outline" className="h-16 px-10 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm rounded-xl text-lg font-medium transition-all">
                                         <MapPin className="mr-2 h-5 w-5" />
                                         Find Your Suburb
@@ -235,14 +235,14 @@ export default function AppHome() {
                 <FadeIn>
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
-                            Ready to Know Your Property's Worth?
+                            Stop Guessing Your Home's Value
                         </h2>
                         <p className="text-lg text-stone-600 mb-10">
-                            Get your free, data-backed valuation report in minutes. No signup required.
+                            Algorithms can't see your renovations. Connect with a verified area specialist for a precise, obligation-free market assessment.
                         </p>
                         <ValuationModal suburbName="Sandton">
                             <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-xl shadow-amber-600/20">
-                                Get Your Free Valuation
+                                Request Expert Valuation
                                 <ArrowRight className="ml-3 h-6 w-6" />
                             </Button>
                         </ValuationModal>

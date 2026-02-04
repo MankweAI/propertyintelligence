@@ -24,7 +24,7 @@ export function AgentCard({ agent, suburbName, suburbSlug }: AgentCardProps) {
             <div className="flex flex-col md:flex-row">
                 {/* Image Section */}
                 <div className="w-full md:w-48 h-48 md:h-auto relative bg-stone-100 shrink-0">
-                    <PlaceholderImage alt={agent.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0" />
+                    <PlaceholderImage alt={agent.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute top-2 left-2 flex flex-col gap-1 items-start">
                         <Badge className="bg-stone-900 text-white border-none shadow-sm backdrop-blur-sm font-serif">
                             {accuracy}% Accuracy

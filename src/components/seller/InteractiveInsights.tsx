@@ -51,7 +51,7 @@ export function InteractiveInsights({ data, suburbName }: InteractiveInsightsPro
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-serif font-bold text-stone-900 flex items-center gap-2">
                         <Users className="h-6 w-6 text-amber-600" />
-                        The {suburbName} Buyer Profile
+                        Who Buys in {suburbName}?
                     </h2>
 
                 </div>
@@ -97,7 +97,7 @@ export function InteractiveInsights({ data, suburbName }: InteractiveInsightsPro
                     <AlertTriangle className="h-6 w-6 text-amber-500" />
                     Don't Lose The Deal
                 </h2>
-                <div className="bg-amber-50 p-8 rounded-3xl border border-amber-100 transition-all duration-500">
+                <div className="bg-amber-50 p-4 rounded-3xl border border-amber-100 transition-all duration-500">
                     <div className="space-y-4">
                         {pricingMistakes.map((mistake, i) => (
                             <div key={i} className="flex gap-4 items-start animate-in fade-in" style={{ animationDelay: `${i * 100}ms` }}>

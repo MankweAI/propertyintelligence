@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import { CinematicHero } from '@/components/CinematicHero';
 import { AgentCard } from '@/components/seller/AgentCard';
-import { ValuationSimulator } from '@/components/seller/ValuationSimulator';
+import { ValuationCTA } from '@/components/seller/ValuationCTA';
 import { InteractiveInsights } from '@/components/seller/InteractiveInsights';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/Animations';
 import { ArrowLeft, CheckCircle, TrendingUp, Users, Calendar } from 'lucide-react';
@@ -103,18 +103,10 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {/* LEFT COLUMN: Content (Second on Mobile, Left on Desktop) */}
+                    {/* LEFT COLUMN: Content */}
                     <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 space-y-12">
 
-                        {/* SEO Intro Paragraph - Dynamic Narrative */}
-                        <MarketNarrative data={sellerData} suburbName={suburb.name} />
-
-                        {/* 1. THE PREPARATION / OPTIMIZATION GUIDE (Dynamic) */}
-                        <div className="mb-12">
-                            <ValueOptimizationGuide data={sellerData} suburbName={suburb.name} intent={intent} />
-                        </div>
-
-                        {/* 2. THE REALITY / OPPORTUNITY: Sold vs Listed (Anchoring) */}
+                        {/* 1. THE HOOK: Sold vs Listed (Anchoring) */}
                         <div className="mb-12">
                             <div className="mb-6">
                                 <h3 className="text-xl font-serif font-bold text-stone-900">
@@ -145,38 +137,22 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
                             />
                         </div>
 
-                        {/* 3. NEW: Price Velocity Slider (Interactive) */}
-                        <div className="mb-12">
-                            <PriceVelocitySlider
-                                avgPrice={sellerData.pricing.freehold.avgPrice}
-                                avgDays={sellerData.supplyDemand.estDaysOnMarket}
-                                intent={intent}
-                            />
-                        </div>
+                        {/* 2. THE CONTEXT: SEO Intro Paragraph - Dynamic Narrative */}
+                        <MarketNarrative data={sellerData} suburbName={suburb.name} />
 
-                        {/* RIGHT COLUMN: Simulator (First on Mobile, Right on Desktop) */}
-                        <div className="lg:col-span-1 lg:col-start-3 lg:row-start-1">
-                            <div className="sticky top-24" id="valuation-form">
-                                <ValuationSimulator
-                                    suburbName={suburb.name}
-                                    pricingData={{
-                                        freehold: { avgPrice: sellerData.pricing.freehold.avgPrice },
-                                        sectional: { avgPrice: sellerData.pricing.sectional.avgPrice }
-                                    }}
-                                />
-                            </div>
-                        </div>
-
-                        {/* 3. THE GUIDE: Empathy (Trust) */}
+                        {/* 3. THE ENGAGEMENT: Interactive Insights */}
                         <InteractiveInsights data={sellerData} suburbName={suburb.name} />
 
-                        {/* 4. MARKET PULSE: Urgency */}
+                        {/* 4. THE SOFT SOLUTION: Value Optimization Guide */}
+                        <div className="mb-12">
+                            <ValueOptimizationGuide data={sellerData} suburbName={suburb.name} intent={intent} />
+                        </div>
+
+                        {/* 5. REINFORCEMENT: Market Pulse */}
                         <MarketPulseWidget suburbName={suburb.name} />
 
-                        {/* 5. THE DATA: Logic (Justification) */}
+                        {/* 6. THE DATA: Stats */}
                         <FadeIn className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-12">
-                            {/* ... Data Stats (Kept same as before but wrapped in FadeIn) ... */}
-                            {/* Simplified for brevity in this replacement, assuming we keep the original blocks or similar */}
                             <div className="flex items-center gap-3 mb-6">
                                 <TrendingUp className="h-6 w-6 text-emerald-600" />
                                 <h2 className="text-2xl font-serif font-bold text-slate-900">
@@ -186,11 +162,6 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
                             <div className="text-stone-500 italic">
                                 Detailed market composition and trend analysis available in full report.
                             </div>
-                            {/* ... (Detailed stats block would ideally be here or refactored into a component) ... */}
-                            {/* Re-using the detailed block logic from page.tsx is better done by copying it fully or making a component. 
-                                For this step, I will simplify or ask to move it to a component 'MarketStats.tsx' if strictly needed, 
-                                but to avoid huge file writes, I'll validly assume the original content logic is fine to be copy-pasted if I knew it all,
-                                but since I'm writing a NEW file, I should include the stats block. I'll include the main parts. */}
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 mt-6">
                                 <div className="text-center p-6 bg-slate-50 rounded-2xl">
@@ -208,7 +179,6 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
                             </div>
                         </FadeIn>
 
-
                         {/* Value Proposition Cards */}
                         {sellerData.valueProp && (
                             <ValuePropCards valueProp={sellerData.valueProp} />
@@ -221,17 +191,17 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
                             </div>
 
                             <div className="mb-8">
-                                <h2 className="text-3xl font-serif font-bold text-stone-900 mb-2">Authorized Valuation Partners</h2>
+                                <h2 className="text-3xl font-serif font-bold text-stone-900 mb-2">Verified Suburb Experts</h2>
                                 <p className="text-stone-500 text-sm max-w-xl italic">
                                     {intent === 'buyer'
-                                        ? "Work with agents who have access to off-market stock and know the real transaction values."
-                                        : "Don't just list. Partner with analysts who understand the data."}
+                                        ? "Your valuation is backed by agents with proven sales records in this specific suburb."
+                                        : "We partner with top-performing analysts, not just salespeople. Trust the data."}
                                 </p>
                             </div>
 
                             <BroadcastValuationModal suburbName={suburb.name} agents={agents}>
-                                <Button className="w-full bg-stone-900 hover:bg-stone-800 text-white h-16 text-lg font-bold mb-12 shadow-xl shadow-stone-900/20 hover:shadow-2xl hover:scale-[1.01] transition-all border border-stone-800">
-                                    {intent === 'buyer' ? "🎯 Match Me with a Buyer's Agent" : "🚀 Get All 3 Valuations (Blind)"}
+                                <Button className="w-full bg-amber-600 hover:bg-amber-500 text-white h-16 text-lg font-bold mb-12 shadow-xl shadow-stone-900/20 hover:shadow-2xl hover:scale-[1.01] transition-all border border-amber-700">
+                                    {intent === 'buyer' ? "🎯 Match Me with a Buyer's Agent" : "🚀 Get All 3 Valuations"}
                                 </Button>
                             </BroadcastValuationModal>
 
@@ -243,7 +213,13 @@ export function SuburbPageContent({ suburb, sellerData, agents, nearbySuburbsSlo
                                 ))}
                             </StaggerContainer>
                         </section>
+                    </div>
 
+                    {/* RIGHT COLUMN: Simulator/CTA (First on Mobile, Right on Desktop) */}
+                    <div className="lg:col-span-1 lg:col-start-3 lg:row-start-1">
+                        <div className="sticky top-24" id="valuation-form">
+                            <ValuationCTA suburbName={suburb.name} />
+                        </div>
                     </div>
                 </div>
             </div>
