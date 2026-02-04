@@ -328,7 +328,13 @@ const RESEARCHED_DATA: Record<string, Partial<SuburbSellerData>> = {
             { item: "Security Upgrades", cost: 42000, valueAdd: 29400, roi: 1.7, verdict: "Do It" },
             { item: "Swimming Pool", cost: 320000, valueAdd: 48000, roi: 1.15, verdict: "Caution" },
             { item: "Solar / Backup", cost: 135000, valueAdd: 101250, roi: 1.75, verdict: "Do It" }
-        ]
+        ],
+        narrativeSummary: "Broadacres is a tranquil enclave that bridges the bustle of Fourways with the serenity of Dainfern. It's a mature, low-density suburb favored by families seeking space and greenery without the estate premiums. The market here is steady, driven by buyers who prioritize privacy and large stands over brand-name estate living.",
+        sellerIntelligence: {
+            timeline: { wellPriced: "55 days", negotiationRoom: "8-12%", bestSeason: "Summer" },
+            pricingMistakes: ["Pricing against Dainfern estate premiums", "Ignoring the 'no estate levy' advantage", "Overlooking the appeal to downsizers from larger properties"],
+            marketingAngles: ["Private, low-density living", "No estate levies", "Proximity to Dainfern and Fourways amenities"]
+        }
     },
     'rivonia': {
         soldVsListed: {
